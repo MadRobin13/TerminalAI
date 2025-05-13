@@ -1,44 +1,40 @@
 package ai
 
 import (
-	"google.golang.org/genai"
-	"github.com/joho/godotenv"
-	"os"
 	"TerminalAI/logger"
+	"context"
+	"os"
 	"sync"
+
+	"github.com/joho/godotenv"
+	"google.golang.org/genai"
 )
 
-var client genai.Client
-var ctx context.Context
+var client *genai.Client = nil
+var ctx context.Context = context.Background()
+var once sync.Once
 
+func SetUpAPI() {
+	once.Do(func() {
+		logger.SetupLogger()
 
-	init := sync.OnceFunc(
-		func() error {
-			defer return nil
-			logger.SetupLogger()
+		err := godotenv.Load("./.env")
 
-			err := godotenv.Load()
-
-			if err != nil {
-				logger.Logger().Error(err.Error())
-				return err
-			}
-
-			ctx := context.Background()
-			client, err := genai.NewClient(ctx, &genai.ClientConfig{
-				APIKey:  os.Getenv("API_KEY"),
-				Backend: genai.BackendGeminiAPI,
-			})
-
-			if err != nil {
-				logger.Logger().Error(err.Error())
-				return err
-			}
+		if err != nil {
+			logger.Logger().Error(err.Error())
+			panic(err)
 		}
-	)
 
-func SetUpAPI() error {
-	init()
+		client, err = genai.NewClient(ctx, &genai.ClientConfig{
+			APIKey:  os.Getenv("API_KEY"),
+			Backend: genai.BackendGeminiAPI,
+		})
+
+		if err != nil {
+			logger.Logger().Error(err.Error())
+			panic(err)
+		}
+	})
 }
 
 

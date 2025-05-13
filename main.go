@@ -1,13 +1,8 @@
 package main
 
 import (
-	"context"
-
-	"google.golang.org/genai"
-	"github.com/joho/godotenv"
-	"os"
-	"TerminalAI/logger"
 	"TerminalAI/ai"
+	"fmt"
 )
 
 func main() {
