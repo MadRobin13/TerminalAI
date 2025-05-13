@@ -41,15 +41,18 @@ Built with ❤️ by [MadRobin13](https://github.com/MadRobin13) to make AI acce
 
 ## 🚀 How to Use / Contribute  
 1. Clone this repo:  
-   ```bash
+    ```bash
    git clone https://github.com/MadRobin13/TerminalAI.git
    cd TerminalAI
 Install dependencies (Go modules):
 
 2. Install Dependencies
-    ```go mod tidy
+    ```bash
+    go get .
+    go mod tidy
 
 3. Run TerminalAI:
-    ```go run main.go
+    ```bash
+    go run main.go
 
 4. Fork, build, and send a PR to contribute!
