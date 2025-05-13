@@ -16,7 +16,7 @@
 
 ## 📊 HackaTime Progress  
 ![](https://hackatime-badge.hackclub.com/U07BWS2LPE2/TerminalAI)  
-![](https://github-readme-stats.hackclub.dev/api/wakatime?username=MadRobin13&api_domain=hackatime.hackclub.com&theme=shadow_green&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8)
+![](https://github-readme-stats.hackclub.dev/api/wakatime?username=2445&api_domain=hackatime.hackclub.com&theme=shadow_green&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8)
 </br><img src="https://profile-counter.glitch.me/MadRobin13-TerminalAI/count.svg" alt="Visitor Counter"/>
 
 ---
