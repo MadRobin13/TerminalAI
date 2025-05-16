@@ -57,7 +57,6 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					return m, nil
 				} else if m.textInput.Value() == "/exit" || m.textInput.Value() == "/quit" || m.textInput.Value() == "/q" || m.textInput.Value() == "/bye" { 
 					return m, tea.Quit
-				}
 				} else if m.textInput.Value() == "/help" {
 					m.textInput.Reset()
 					fmt.Println("Available commands:",
@@ -67,13 +66,13 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					"\n",
 					)
 					return m, nil
+				}
 			} else {
 				response := ai.MakeRequest(m.textInput.Value())
 				fmt.Println("\n;) > ", response, "\n")
 				m.textInput.Reset()
 			}
-
-		}
+	}
 
 	case errMsg:
 		m.err = msg
