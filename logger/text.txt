@@ -1,0 +1,23 @@
+To set an executable icon for a Go program, particularly on Windows, it's necessary to embed the icon as a resource within the executable. This process involves a few steps:
+Prepare the Icon File: Ensure the icon file is in .ico format. Multiple sizes within the same .ico file are supported. If starting with a PNG, tools like ImageMagick can convert it:
+Code
+
+    convert icon_16.png icon_32.png icon_48.png icon_256.png -colors 256 icon.ico
+
+Generate .syso Files: Use the rsrc tool to generate .syso files, which Go can link during the build process. Install rsrc if needed:
+Code
+
+    go install github.com/akavel/rsrc@latest
+
+Then, generate the .syso files for the target architectures:
+Code
+
+    rsrc -arch 386 -ico icon.ico -o icon_386.syso
+    rsrc -arch amd64 -ico icon.ico -o icon_amd64.syso
+    
+Build the Go Program: When building the Go program, it will automatically include any .syso files present in the same directory as the main package.
+Code
+
+    go build -o myapp.exe 
+Ensure the .syso files are in the same directory when executing the build command.
+Following these steps will embed the icon in the executable.
