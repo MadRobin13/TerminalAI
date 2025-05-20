@@ -42,7 +42,7 @@ func MakeRequest(prompt string) string{
 	result, err := client.Models.GenerateContent(
         ctx,
         "gemini-2.0-flash",
-        genai.Text(prompt),
+        genai.Text("You are going to generate a respose based on this current chat history between a user and yourself. Do what the user says and speak directly to the user at all times: \n" + prompt),
         nil,
     )
 

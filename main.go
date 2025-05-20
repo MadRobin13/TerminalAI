@@ -3,6 +3,7 @@ package main
 import (
 	"TerminalAI/ai"
 	"TerminalAI/frontend"
+	"TerminalAI/fileIO"
 	"fmt"
 	"os"
 
@@ -12,6 +13,7 @@ import (
 func main() {
 
 	ai.SetUpAPI()
+	fileIO.InitFileIO()
 
 	// fmt.Println(ai.MakeRequest("How are you"))
 

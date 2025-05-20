@@ -2,6 +2,7 @@ package frontend
 
 import (
 	"TerminalAI/ai"
+	"TerminalAI/fileIO"
 	"fmt"
 
 	"github.com/charmbracelet/bubbles/textinput"
@@ -56,6 +57,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.textInput.Reset()
 					return m, nil
 				} else if m.textInput.Value() == "/exit" || m.textInput.Value() == "/quit" || m.textInput.Value() == "/q" || m.textInput.Value() == "/bye" { 
+					fileIO.CloseFile()
 					return m, tea.Quit
 				} else if m.textInput.Value() == "/help" {
 					m.textInput.Reset()
@@ -68,7 +70,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					return m, nil
 				}
 			} else {
-				response := ai.MakeRequest(m.textInput.Value())
+				fileIO.WriteToFile("user: " + m.textInput.Value())
+				response := ai.MakeRequest(fileIO.GetChat())
+				fileIO.WriteToFile("AI: " + response)
 				fmt.Println("\n;) > ", response, "\n")
 				m.textInput.Reset()
 			}
