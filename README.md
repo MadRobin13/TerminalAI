@@ -10,7 +10,6 @@
 - 🧠 **Gemini API integration** for AI-powered conversations
 - ⚡ **Fast and efficient** Golang backend
 - 🔒 **Local-first experience** — minimal external dependencies
-- 🌐 **API-ready architecture** for easy expansion
 
 ---
 
@@ -30,7 +29,7 @@
 - Gemini API integration for AI responses  
 
 **Database**:  
-- (To be decided — options include SQLite, PostgreSQL, or simple file-based storage)
+- Local file handling for direct access to previous chats (stored and labelled chronologically in the `./chats` folder)
 
 ---
 
@@ -51,8 +50,12 @@ Install dependencies (Go modules):
     go get .
     go mod tidy
 
-3. Run TerminalAI:
+3. Create a .env file and add you gemini API key:
+    ```bash
+    API_KEY = {API_KEY}
+
+4. Run TerminalAI:
     ```bash
     go run main.go
 
-4. Fork, build, and send a PR to contribute!
+5. Fork, build, and send a PR to contribute!
