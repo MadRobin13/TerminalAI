@@ -1,4 +1,4 @@
-# TerminalAI 🖥️🤖  (WIP)
+# TerminalAI 🖥️🤖 
 *Your personal AI assistant, right in your terminal.*
 
 **TerminalAI** is a sleek, terminal-based AI assistant that brings Google's Gemini AI straight to your command line. Whether you're debugging code, seeking quick answers, or just want an AI chat companion, TerminalAI is built for speed, privacy, and productivity — right in your terminal.
