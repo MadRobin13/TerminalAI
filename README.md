@@ -5,6 +5,10 @@
 
 ---
 
+<img src="example.png" width="auto" height="auto"></img>
+
+---
+
 ## 💡 Features
 - ⌨️ **Interactive terminal UI** powered by Bubble Tea
 - 🧠 **Gemini API integration** for AI-powered conversations
