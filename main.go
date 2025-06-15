@@ -6,11 +6,13 @@ import (
 	"TerminalAI/fileIO"
 	"fmt"
 	"os"
-
+	"bufio"
+	
 	tea "github.com/charmbracelet/bubbletea"
 )
 
 func main() {
+
 
 	ai.SetUpAPI()
 	fileIO.InitFileIO()
@@ -23,4 +25,7 @@ func main() {
 		fmt.Printf("Error running program: %v\n", err)
 		os.Exit(1)
 	}
+
+	fmt.Println("\nPress Enter to exit...")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
 }
